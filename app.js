@@ -1,8 +1,10 @@
 const express = require('express');
+const bodyParser = require('body-parser');
 const app = express();
 const dotenv = require('dotenv').config();
 const port = process.env.PORT;
 
+app.use(bodyParser.urlencoded({ extended: true }));
 app.set('view engine', 'pug');
 
 app.get('/', function(req, res) {
@@ -11,7 +13,9 @@ app.get('/', function(req, res) {
 
 app.post('/party', function(req, res) {
   res.send('Post ok !');
+  console.log(req.body);
 });
+
 
 
 app.listen(port, () => console.log(`Front app listening on port ${port}!`));
