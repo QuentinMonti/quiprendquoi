@@ -1,5 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const axios = require('axios');
 const app = express();
 const dotenv = require('dotenv').config();
 const port = process.env.PORT;
@@ -13,7 +14,10 @@ app.get('/', function(req, res) {
 
 app.post('/party', function(req, res) {
   res.send('Post ok !');
-  console.log(req.body);
+  axios
+      .post(`${process.env.API_URL}/party`, req.body)
+      .then(({data}) => console.log(data))
+      .catch((err) => console.error(err));
 });
 
 
