@@ -1,5 +1,17 @@
 @import 'vendors/reset.scss';
 
+* {
+  text-align: center;
+}
+h1 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+h2 {
+  font-size: 20px;
+  font-style: italic;
+}
 form {
   border: 1px solid blue;
 
