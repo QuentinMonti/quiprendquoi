@@ -35,5 +35,18 @@ app.get('/party/:id', (req, res) => {
       .catch((err) => console.log(err));
 });
 
+app.post('/party/:id/items', (req, res) => {
+    axios
+        .post(`${process.env.API_URL}/party/${req.params.id}/items`, req.body)
+        .then((data) => res.redirect(`/party/${req.params.id}`))
+        .catch((err) => console.log(err));
+});
+
+app.delete('/party/:id/items/:id', (req, res) => {
+    axios
+        .delete(`${process.env.API_URL}/party/${req.params.id}/items/${req.params.id}`)
+        .then((data) => res.redirect(`/party/${req.params.id}`))
+        .catch((err) => console.log(err));
+});
 
 app.listen(port, () => console.log(`Front app listening on port ${port}!`));

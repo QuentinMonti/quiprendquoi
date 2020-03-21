@@ -4,3 +4,20 @@ h2= party.name
 h3 Créé par #{party.author}
 label(for="url") Partagez l'événement
 input(id="url" value=`${url}` data-clipboard=`${url}` data-share-url=`${url}` data-share-title=`${party.name}` data-share-text=`${party.author} vous invite à rejoindre l'événément ${party.name}`)
+form(method="post" action=`/party/${party._id}/items` )
+    div
+        label(for="name") Participez vous à l'événement?
+        input(name="name" id="name" required minlength="3" placeholder="Jack")
+    button(type="submit") Je participe !
+br
+h3 Participants =
+br
+ul
+    each item in party.items
+     li    #{item.name}
+     form(method="post" action=`/party/${party._id}/items/${item._id}?_method=DELETE`)
+        button(type="submit") Supprimer le participant
+     br
+    else
+        li Il n'y pas de participants
+        br
