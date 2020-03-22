@@ -9,6 +9,7 @@
 ## Améliorations apportées
 
 - Affichage de la liste des items sur la page événément (`app.js`, `party.pug`)
+- Ajout d'un nouvelle item (`app.js`, `party.pug`)
 - Possibilité de supprimer un item (`app.js`, `party.pug`)
 - Ajout du querry @supports (`style.scss`)
 
