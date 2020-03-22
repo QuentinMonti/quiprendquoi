@@ -26,7 +26,12 @@
     "body-parser": "^1.19.0",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
-    "pug": "^2.0.4"
+    "fetch": "^1.1.0",
+    "fetch-api": "0.0.2",
+    "method-override": "^3.0.0",
+    "node-fetch-polyfill": "^2.0.6",
+    "pug": "^2.0.4",
+    "whatwg-fetch": "^2.0.4"
   },
   "devDependencies": {
     "@babel/core": "^7.8.7",

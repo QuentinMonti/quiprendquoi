@@ -5,11 +5,12 @@ const app = express();
 const dotenv = require('dotenv').config();
 const port = process.env.PORT;
 
+
+
 app.set('view engine', 'pug');
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static('public'));
 app.use(express.static('pwa'));
-
 
 app.get('/', function(req, res) {
   res.render('index', { title: 'Qui prend quoi ?' });
@@ -38,15 +39,25 @@ app.get('/party/:id', (req, res) => {
 app.post('/party/:id/items', (req, res) => {
     axios
         .post(`${process.env.API_URL}/party/${req.params.id}/items`, req.body)
-        .then((data) => res.redirect(`/party/${req.params.id}`))
+        .then(({data}) => res.redirect(`/party/${req.params.id}`))
         .catch((err) => console.log(err));
 });
 
 app.delete('/party/:id/items/:id', (req, res) => {
     axios
         .delete(`${process.env.API_URL}/party/${req.params.id}/items/${req.params.id}`)
-        .then((data) => res.redirect(`/party/${req.params.id}`))
+        .then(({data}) => res.redirect(`/party/${req.params.id}`))
         .catch((err) => console.log(err));
 });
+
+
+/*app.fetch('/party/:id', (req, res) => {
+        axios
+            .get(`${process.env.API_URL}/party/${req.params.id}`)
+            .then(({data}) => console.log(data))
+            .catch((err) => console.log(err))
+
+}); */
+
 
 app.listen(port, () => console.log(`Front app listening on port ${port}!`));
