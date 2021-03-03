@@ -30,7 +30,7 @@
     "fetch-api": "0.0.2",
     "method-override": "^3.0.0",
     "node-fetch-polyfill": "^2.0.6",
-    "pug": "^2.0.4",
+    "pug": "^3.0.1",
     "whatwg-fetch": "^2.0.4"
   },
   "devDependencies": {
